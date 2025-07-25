@@ -1,0 +1,7 @@
+# Domains to block from link extraction
+support.google.com
+labs.google.com
+policies.google.com
+lumendatabase.org
+accounts.google.com
+google.com

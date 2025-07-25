@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=320, initial-scale=1.0">
+  <title>LinkExtract Tool</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="icons/icon48.png" alt="LinkExtract Tool" class="logo">
+    <h1>LinkExtract Tool</h1>
+    <button id="dark-mode-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+  </header>
+  <main>
+    <div id="links-list" class="links-list">
+      <div class="empty">No links extracted yet.</div>
+    </div>
+    <div class="actions">
+      <button id="copy-btn" class="primary" disabled>Copy CSV</button>
+      <button id="download-btn" class="accent" disabled>Download CSV</button>
+    </div>
+  </main>
+  <footer>
+    <span>Use <b>Ctrl/⌘ + Right Drag</b> on a page!<br>Or use <b>Ctrl+Z</b> to copy all links on the page.</span>
+  </footer>
+  <div class="privacy-link">
+    <a href="https://docs.google.com/document/d/1D_KKoiT0F-BTVLOmbqNmzApkGXN9a0wxw6JMen7jj90/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html> 
