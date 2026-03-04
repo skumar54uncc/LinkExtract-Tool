@@ -1,14 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "IR LinkExtract Tool",
-  "version": "1.0.0",
-  "description": "Extract and export visible hyperlinks from any webpage with a drag-and-select UI.",
+  "name": "Link Extractor to CSV – IR LinkExtract",
+  "version": "1.0.2",
+  "description": "Extract links from any webpage to CSV. Select area, auto-detect on scroll, blocklist filters. Local-only.",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "permissions": ["activeTab", "scripting"],
+  "permissions": ["activeTab", "storage"],
   "background": {
     "service_worker": "background.js"
   },

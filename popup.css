@@ -27,6 +27,90 @@ h1 {
 main {
   padding: 12px 16px 0 16px;
 }
+
+/* Auto-refresh controls */
+.auto-refresh-controls {
+  margin-bottom: 12px;
+  padding: 8px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.auto-refresh-btn {
+  background: #28a745 !important;
+  color: white !important;
+  border: none !important;
+  padding: 6px 12px !important;
+  border-radius: 4px !important;
+  margin-bottom: 6px !important;
+  cursor: pointer !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  width: 100% !important;
+  transition: background 0.15s, box-shadow 0.15s !important;
+}
+
+.auto-refresh-btn:hover {
+  background: #218838 !important;
+  box-shadow: 0 2px 4px rgba(40,167,69,0.25) !important;
+}
+
+.auto-refresh-btn.active {
+  background: #dc3545 !important;
+}
+
+.auto-refresh-btn.active:hover {
+  background: #c82333 !important;
+}
+
+.auto-refresh-status {
+  font-size: 0.8rem;
+  color: #6c757d;
+  text-align: center;
+  padding: 4px 0;
+}
+
+.status-active {
+  color: #28a745 !important;
+  font-weight: 600;
+}
+
+.status-paused {
+  color: #6c757d;
+}
+
+/* Update notification */
+.update-notification {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #17a2b8;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+.update-notification.success {
+  background: #28a745;
+  color: white;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .links-list {
   max-height: 220px;
   overflow-y: auto;
@@ -101,6 +185,54 @@ button:focus, button:hover:not(:disabled) {
   box-shadow: 0 2px 8px rgba(18,22,66,0.10);
   filter: brightness(1.04);
 }
+
+/* Pinterest-specific button styling */
+.pinterest-buttons-container {
+  margin: 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pinterest-btn {
+  background: #e60023 !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px 16px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  width: 100% !important;
+  transition: background 0.15s, box-shadow 0.15s !important;
+}
+
+.pinterest-btn.ultra-aggressive {
+  background: #e60023 !important;
+}
+
+.pinterest-btn.ultra-aggressive-scroll {
+  background: #dc3545 !important;
+}
+
+.pinterest-btn:hover {
+  background: #cc001f !important;
+  box-shadow: 0 2px 8px rgba(230,0,35,0.25) !important;
+}
+
+.pinterest-btn.ultra-aggressive-scroll:hover {
+  background: #c82333 !important;
+  box-shadow: 0 2px 8px rgba(220,53,69,0.25) !important;
+}
+
+.pinterest-btn:focus {
+  box-shadow: 0 2px 8px rgba(230,0,35,0.25) !important;
+}
+
+.pinterest-btn.ultra-aggressive-scroll:focus {
+  box-shadow: 0 2px 8px rgba(220,53,69,0.25) !important;
+}
+
 footer {
   text-align: center;
   font-size: 0.92rem;
@@ -120,6 +252,25 @@ body.dark-mode header {
 body.dark-mode h1 {
   color: #f1f1f1;
 }
+
+/* Dark mode auto-refresh controls */
+body.dark-mode .auto-refresh-controls {
+  background: #23242a;
+  border: 1px solid #2d2f36;
+}
+
+body.dark-mode .auto-refresh-status {
+  color: #bbb;
+}
+
+body.dark-mode .status-active {
+  color: #4ade80 !important;
+}
+
+body.dark-mode .status-paused {
+  color: #bbb;
+}
+
 body.dark-mode .links-list {
   background: #23242a;
   border: 1px solid #23242a;
@@ -158,6 +309,15 @@ body.dark-mode footer {
   border-top: 1px solid #23242a;
 }
 
+/* Dark mode Pinterest button */
+body.dark-mode .pinterest-btn {
+  background: #e60023 !important;
+  color: white !important;
+}
+body.dark-mode .pinterest-btn:hover {
+  background: #cc001f !important;
+}
+
 #dark-mode-toggle {
   margin-left: auto;
   background: none;
@@ -172,4 +332,124 @@ body.dark-mode footer {
 }
 body.dark-mode #dark-mode-toggle {
   color: #ffbf0c;
+}
+
+/* Review ask modal */
+.review-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.review-overlay.visible {
+  display: flex;
+}
+.review-modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 280px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+body.dark-mode .review-modal {
+  background: #23242a;
+  border: 1px solid #2d2f36;
+}
+.review-step .review-question {
+  margin: 0 0 14px 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #121642;
+  text-align: center;
+}
+body.dark-mode .review-step .review-question {
+  color: #f1f1f1;
+}
+.review-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.review-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+.review-btn-yes {
+  background: #28a745;
+  color: #fff;
+}
+.review-btn-yes:hover {
+  background: #218838;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+.review-btn-no {
+  background: #6c757d;
+  color: #fff;
+}
+.review-btn-no:hover {
+  background: #5a6268;
+  box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3);
+}
+.review-btn-primary {
+  width: 100%;
+  background: #121642;
+  color: #fff;
+}
+.review-btn-primary:hover {
+  background: #1a2060;
+  box-shadow: 0 2px 8px rgba(18, 22, 66, 0.3);
+}
+body.dark-mode .review-btn-primary {
+  background: #ffbf0c;
+  color: #121642;
+}
+body.dark-mode .review-btn-primary:hover {
+  background: #e6ac0a;
+}
+.review-later {
+  display: block;
+  margin: 0 auto;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 6px 0;
+  text-decoration: underline;
+}
+.review-later:hover {
+  color: #666;
+}
+body.dark-mode .review-later {
+  color: #888;
+}
+body.dark-mode .review-later:hover {
+  color: #bbb;
+}
+.privacy-link {
+  padding: 8px 0;
+  text-align: center;
+  font-size: 0.85rem;
+}
+.privacy-link a {
+  color: #6c757d;
+  text-decoration: none;
+}
+.privacy-link a:hover {
+  text-decoration: underline;
+}
+body.dark-mode .privacy-link a {
+  color: #888;
 } 

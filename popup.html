@@ -22,11 +22,34 @@
     </div>
   </main>
   <footer>
-    <span>Use <b>Ctrl/⌘ + Right Drag</b> on a page!<br>Or use <b>Ctrl+Z</b> to copy all links on the page.</span>
+    <span>Use <b>Ctrl/⌘ + Left Drag</b> on a page!<br>Or use <b>Ctrl+Z</b> to copy all links on the page.</span>
   </footer>
   <div class="privacy-link">
     <a href="https://docs.google.com/document/d/1D_KKoiT0F-BTVLOmbqNmzApkGXN9a0wxw6JMen7jj90/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
   </div>
+
+  <!-- Review ask modal (after first successful CSV export) -->
+  <div id="review-ask-overlay" class="review-overlay" role="dialog" aria-label="Feedback" aria-hidden="true">
+    <div class="review-modal">
+      <div id="review-step1" class="review-step">
+        <p class="review-question">Did this help?</p>
+        <div class="review-buttons">
+          <button type="button" id="review-yes" class="review-btn review-btn-yes">Yes</button>
+          <button type="button" id="review-no" class="review-btn review-btn-no">No</button>
+        </div>
+        <button type="button" id="review-later" class="review-later">Maybe later</button>
+      </div>
+      <div id="review-step2-yes" class="review-step" hidden>
+        <p class="review-question">Quick review?</p>
+        <button type="button" id="review-open-cws" class="review-btn review-btn-primary">Leave a review</button>
+      </div>
+      <div id="review-step2-no" class="review-step" hidden>
+        <p class="review-question">Send feedback</p>
+        <button type="button" id="review-open-feedback" class="review-btn review-btn-primary">Send feedback</button>
+      </div>
+    </div>
+  </div>
+
   <script src="popup.js"></script>
 </body>
 </html> 
